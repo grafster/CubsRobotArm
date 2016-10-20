@@ -49,6 +49,9 @@ void loop() {
         else if (servoNumber == 3)
           myservo3.write(angleString.toInt());
       }
+      else if (inString[0] == 'p'){
+        delay(1000);
+      }
 
       inString = "";
     }
