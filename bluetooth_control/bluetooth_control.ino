@@ -4,13 +4,15 @@
 Servo myservo1;  // create servo object to control a servo
 Servo myservo2;  // create servo object to control a servo
 Servo myservo3;  // create servo object to control a servo
+Servo myservo4;  // create servo object to control a servo
 String inString = "";    // string to hold input
 
 void setup() {
-  // Servos attached on pins 9 - 11
-  myservo1.attach(9);
-  myservo2.attach(10);
-  myservo3.attach(11);
+  // Servos attached on pins 8 - 11
+  myservo1.attach(8);
+  myservo2.attach(9);
+  myservo3.attach(10);
+  myservo4.attach(11);
   // Open serial communications and wait for port to open:
   Serial.begin(9600);
   while (!Serial) {
@@ -29,7 +31,7 @@ void loop() {
     // if you get a newline, process the string - should be in the form s1-90:
     if (inChar == '\n') {
       int servoNumber = -1;
-      if (inString[0] == 's' && inString[2] == '-'){
+      if (inString[0] == 's'){
         // Convert from an ascii character to an integer
         servoNumber = inString[1] -'0'; 
 
@@ -48,6 +50,8 @@ void loop() {
           myservo2.write(angleString.toInt());
         else if (servoNumber == 3)
           myservo3.write(angleString.toInt());
+        else if (servoNumber == 4)
+          myservo4.write(angleString.toInt());
       }
       else if (inString[0] == 'p'){
         delay(1000);
