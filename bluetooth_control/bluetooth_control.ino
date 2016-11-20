@@ -18,7 +18,12 @@ void setup() {
   while (!Serial) {
     ; // wait for serial port to connect. Needed for native USB port only
   }
-
+  Serial.println("Awaiting input");
+  myservo1.write(90);
+  myservo2.write(90);
+  myservo3.write(90);
+  myservo4.write(90);
+    
 }
 
 void loop() {
