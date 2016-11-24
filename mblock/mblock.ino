@@ -22,32 +22,23 @@ void setup() {
   while (!Serial) {
     ; // wait for serial port to connect. Needed for native USB port only
   }
-  Serial.println("Awaiting input");
+  
   myservo1.write(90);
   myservo2.write(90);
   myservo3.write(90);
   myservo4.write(90);
-  delay(500);  
-  myservo1.write(120);
-  myservo2.write(120);
-  myservo3.write(120);
-  myservo4.write(120);
-  delay(500);  
-  myservo1.write(90);
-  myservo2.write(90);
-  myservo3.write(90);
-  myservo4.write(90);
-  delay(500);  
+
+  Serial.println("Ready");
 }
 
 void moveServoToAngle(Servo& servo, int& currentAngle, const int targetAngle)
 {
-  Serial.print("Moving to angle ");
-  Serial.print (targetAngle);
-  Serial.print (" current angle = ");
-  Serial.print(currentAngle);
-  Serial.print (" target angle = ");
-  Serial.println(targetAngle);
+  //Serial.print("Moving to angle ");
+  //Serial.print (targetAngle);
+  //Serial.print (" current angle = ");
+  //Serial.print(currentAngle);
+  //Serial.print (" target angle = ");
+  //Serial.println(targetAngle);
   if (currentAngle < targetAngle)
   {
     while (currentAngle < targetAngle)
@@ -69,37 +60,43 @@ void moveServoToAngle(Servo& servo, int& currentAngle, const int targetAngle)
     }
   
   }
-  Serial.println("Move Complete");
+  //Serial.println("Move Complete");
+  
+  // Need to send back 0xFF 0x55 0x0d 0x0a ????
+  Serial.write(0xFF);
+  Serial.write(0x55);
+  Serial.write(0x0D);
+  Serial.write(0x0A);
   
 }
+
 void loop() {
   // Read serial input:
 
   while (Serial.available() > 0) {
     int servoNumber = Serial.read();
+    
+    // Kill time until the next byte arrives
+    while (Serial.available() == 0) {};
+    
     int angle = Serial.read();
 
-    Serial.print("ServoNum = "); Serial.print(servoNumber);
-    Serial.print(" angle = "); Serial.println(angle);
-    
-    // if you get a newline, process the string - should be in the form s1-90:
-
-        if (servoNumber == 1)
-        {
-          moveServoToAngle(myservo1, servo1Angle, angle);         
-        }
-        else if (servoNumber == 2)
-        {
-          moveServoToAngle(myservo2, servo2Angle, angle);         
-        }
-        else if (servoNumber == 3)
-        {
-          moveServoToAngle(myservo3, servo3Angle, angle);         
-        }
-        else if (servoNumber == 4)
-        {
-          moveServoToAngle(myservo4, servo4Angle, angle);         
-        }
-      }
-    
+    if (servoNumber == 1)
+    {
+      moveServoToAngle(myservo1, servo1Angle, angle);         
+    }
+    else if (servoNumber == 2)
+    {
+      moveServoToAngle(myservo2, servo2Angle, angle);         
+    }
+    else if (servoNumber == 3)
+    {
+      moveServoToAngle(myservo3, servo3Angle, angle);         
+    }
+    else if (servoNumber == 4)
+    {
+      moveServoToAngle(myservo4, servo4Angle, angle);         
+    }
+  }
+  
 }
