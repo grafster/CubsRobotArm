@@ -1,0 +1,24 @@
+{	"extensionName": "mearm",
+    "description": "Library for controlling meArm robot arm",
+    "version": "1.0",
+	"extensionPort": 0,
+	"sort":3,
+	"firmware":"1.2.103",
+	"javascriptURL":"js/mearm.js",
+	"isMakeBlockBoard":false,
+	"blockSpecs": [
+		/*["h","mBot Program","runArduino",{"src":"mbot","inc":"#include <MeMCore.h>\n","def":"","setup":"","loop":""}],
+		
+		["-"],*/
+		["w", "Move arm forwards %n degrees", "moveArmForwards", 90],	
+		
+	],
+	"menus": {
+		
+	},
+	"values":{
+		
+	},
+	"translators":{
+	}
+}
