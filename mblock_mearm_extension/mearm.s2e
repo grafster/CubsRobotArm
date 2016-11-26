@@ -10,7 +10,10 @@
 		/*["h","mBot Program","runArduino",{"src":"mbot","inc":"#include <MeMCore.h>\n","def":"","setup":"","loop":""}],
 		
 		["-"],*/
-		["w", "Move arm forwards %n degrees", "moveArmForwards", 90],	
+		["w", "Move arm forwards %n degrees", "moveArmForwards", 90],
+		["w", "Move arm up %n degrees", "moveArmUp", 90],	
+		["w", "Move arm sideways %n degrees", "moveArmSideways", 90],	
+		["w", "Move claw to %n degrees", "moveClaw", 90],	
 		
 	],
 	"menus": {

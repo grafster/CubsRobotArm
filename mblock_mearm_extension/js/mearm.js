@@ -22,9 +22,21 @@
 	}
 	
 	ext.moveArmForwards = function(angle) {
-		device.send([0x01, angle]);
-		/*device.send(Array.from('s1-120'));*/
+		device.send([0x01, angle]);		
 	}
+
+	ext.moveArmUp = function(angle) {
+		device.send([0x02, angle]);		
+	}
+
+	ext.moveArmSideways = function(angle) {
+		device.send([0x03, angle]);		
+	}
+
+	ext.moveClaw = function(angle) {
+		device.send([0x04, angle]);		
+	}
+
 		
     function processData(bytes) {
         trace(bytes);
