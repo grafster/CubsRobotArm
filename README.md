@@ -32,7 +32,7 @@ To control the arm from mBlock:-
 
 The blocks for controlling the arm should appear under the robots menu. An example mBlock project is included (mearm.sb2).
 
-Note that this only works in direct control mode - i.e. when you are connected from mBlock to the arm over serial or bluetooth, and events like "When Space Key Pressed" to start the program
+Note that this only works in direct control mode - i.e. when you are connected from mBlock to the arm over serial or bluetooth, and using events like "When Space Key Pressed" to start the program
 
 
 # Other notes
