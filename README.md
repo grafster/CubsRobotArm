@@ -21,14 +21,16 @@ Have fun playing with the sliders, or buttons depending on which apk you install
 
 # mBlock control
 
+The files for this are all located in the mblock subdirectory.
+
 To control the arm from mBlock:-
 
-1. Install the mBlock software from http://http://www.mblock.cc/
+1. Install the mBlock software from http://www.mblock.cc/
 2. Program the arduino with the software mblock.ino
 3. Open the mblock software and go to Extensions -> Manage Extensions and click Add Extension. 
 4. Add mblock_mearm_extension.zip 
 
-The blocks for controlling the arm should appear under the robots menu. 
+The blocks for controlling the arm should appear under the robots menu. An example mBlock project is included (mearm.sb2).
 
 Note that this only works in direct control mode - i.e. when you are connected from mBlock to the arm over serial or bluetooth, and events like "When Space Key Pressed" to start the program
 
